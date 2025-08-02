@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="google-adsense-account" content="ca-pub-1167843264530769">
   <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
-  <title>Conversor</title>
+  <title>ConverTo</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -36,8 +36,13 @@
         <div class="tipo" data-tipo="xml" >XML</div>
       </div>
       <textarea id="input" placeholder="Pega aquí tu texto de entrada..."></textarea>
+      <br>
+      <input type="file" id="file-upload" accept=".json,.csv,.xml" style="display:none" />
+      <button id="upload-btn">Subir archivo</button>
     </div>
-
+    <div class="convertir-wrapper">
+      <button id="convertir">Convertir</button>
+    </div>
     <div class="panel">
       <div class="tipos">
         <div class="tipo seleccionado" data-tipo="json" >JSON</div>
@@ -45,10 +50,12 @@
         <div class="tipo" data-tipo="xml" >XML</div>
       </div>
       <textarea id="output" placeholder="Resultado aquí..." readonly></textarea>
+      <br>
+      <button id="download-btn">Descargar resultado</button>
     </div>
   </div>
 
-  <button id="convertir">Convertir</button>
+
 
   <script src="main.js"></script>
 </body>

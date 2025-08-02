@@ -9,6 +9,10 @@ const info = document.getElementById('info');
 const selectsEntrada = document.querySelectorAll('.contenedor .panel:first-child .tipo');
 const selectsSalida = document.querySelectorAll('.contenedor .panel:last-child .tipo');
 
+const uploadBtn = document.getElementById('upload-btn');
+const downloadBtn = document.getElementById('download-btn');
+const fileInput = document.getElementById('file-upload');
+
 let tipoEntrada = 'json';
 let tipoSalida = 'json';
 let idioma = 'en';
@@ -68,6 +72,7 @@ langSelect.addEventListener('change', () => {
   idioma = langSelect.value;
   limpiarMensaje();
   actualizarTextos();
+  actualizarBotones();
 });
 
 selectsEntrada.forEach(div => {
@@ -126,6 +131,66 @@ convertirBtn.addEventListener('click', () => {
     mostrarMensaje(t.error(error.message));
   }
 });
+
+
+let nombreArchivoOriginal = 'result';
+
+// Abrir selector de archivo al hacer clic en el botón
+uploadBtn.addEventListener('click', () => fileInput.click());
+
+// Manejo del archivo subido
+fileInput.addEventListener('change', (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+
+  // Guardar el nombre original sin extensión
+  nombreArchivoOriginal = file.name.replace(/\.[^/.]+$/, '') || 'resultado';
+
+  const reader = new FileReader();
+  reader.onload = (event) => {
+    input.value = event.target.result;
+    limpiarMensaje();
+  };
+  reader.readAsText(file);
+});
+
+// Descargar el archivo convertido
+downloadBtn.addEventListener('click', () => {
+  const contenido = output.value;
+  if (!contenido) return;
+
+  let mimeType = 'text/plain';
+  let extension = tipoSalida;
+
+  switch (tipoSalida) {
+    case 'json':
+      mimeType = 'application/json';
+      break;
+    case 'csv':
+      mimeType = 'text/csv';
+      break;
+    case 'xml':
+      mimeType = 'application/xml';
+      break;
+  }
+
+  const blob = new Blob([contenido], { type: mimeType });
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `${nombreArchivoOriginal}.${extension}`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+});
+
+// Traducción dinámica de botones
+function actualizarBotones() {
+  uploadBtn.textContent = idioma === 'es' ? 'Subir archivo' : 'Upload file';
+  downloadBtn.textContent = idioma === 'es' ? 'Descargar resultado' : 'Download result';
+}
 
 function mostrarMensaje(texto) {
   mensaje.textContent = texto;
@@ -243,4 +308,5 @@ function xmlToJson(xmlStr) {
   }
 }
 // Inicializamos textos
+actualizarBotones();
 actualizarTextos();

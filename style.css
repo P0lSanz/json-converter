@@ -105,3 +105,22 @@ button:hover {
   min-height: 20px;
   text-align: center;
 }
+
+.convertir-wrapper {
+  text-align: center;
+  margin: 20px 0;
+}
+
+#convertir {
+  display: inline-block;
+  padding: 10px 22px;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(0, 170, 255, 0.25);
+  transition: background-color 0.25s, transform 0.15s;
+}
