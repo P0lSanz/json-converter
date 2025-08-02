@@ -1,0 +1,107 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background: #f0f0f0;
+  color: #333;
+}
+
+.lang-selector {
+  max-width: 900px;
+  margin: 0 auto 15px;
+  text-align: right;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+h1 {
+  text-align: center;
+}
+
+.info {
+  max-width: 500px;
+  margin: 0 auto 15px;
+  font-size: 14px;
+  color: #555;
+  text-align: center;
+}
+
+.contenedor {
+  display: flex;
+  gap: 10px;
+  max-width: 900px;
+  margin: 0 auto 15px;
+}
+
+.panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.tipos {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 5px;
+  justify-content: center;
+}
+
+.tipo {
+  padding: 6px 12px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+  background: #eee;
+  color: #333;
+  font-weight: 600;
+  font-size: 14px;
+  min-width: 70px;
+  text-align: center;
+  line-height: 24px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.tipo.seleccionado {
+  background: #4caf50;
+  color: white;
+  border-color: #4caf50;
+}
+
+textarea {
+  flex: 1;
+  min-height: 350px;
+  resize: vertical;
+  padding: 12px;
+  font-family: monospace;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: white;
+  box-sizing: border-box;
+}
+
+button {
+  display: block;
+  margin: 0 auto;
+  padding: 12px 40px;
+  font-size: 18px;
+  border: none;
+  background: #4caf50;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background: #45a049;
+}
+
+.mensaje {
+  max-width: 500px;
+  margin: 0 auto 10px;
+  font-weight: 700;
+  color: #d32f2f;
+  min-height: 20px;
+  text-align: center;
+}

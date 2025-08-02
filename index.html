@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Convertidor JSON / CSV / XML</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="lang-selector">
+  <label for="lang">🌐</label>
+<select id="lang">
+  <option value="es">Español</option>
+  <option value="en" selected>English</option>
+</select>
+  </div>
+
+  <h1 id="title">Convertidor JSON / CSV / XML</h1>
+
+  <p class="info" id="info">
+    Conversiones soportadas actualmente:<br />
+    - JSON ⇄ CSV<br />
+    - JSON ⇄ XML<br />
+    <small>No se soportan conversiones directas CSV ⇄ XML</small>
+  </p>
+
+  <div id="mensaje" class="mensaje"></div>
+
+  <div class="contenedor">
+    <div class="panel">
+      <div class="tipos">
+        <div class="tipo seleccionado" data-tipo="json" >JSON</div>
+        <div class="tipo" data-tipo="csv" >CSV</div>
+        <div class="tipo" data-tipo="xml" >XML</div>
+      </div>
+      <textarea id="input" placeholder="Pega aquí tu texto de entrada..."></textarea>
+    </div>
+
+    <div class="panel">
+      <div class="tipos">
+        <div class="tipo seleccionado" data-tipo="json" >JSON</div>
+        <div class="tipo" data-tipo="csv" >CSV</div>
+        <div class="tipo" data-tipo="xml" >XML</div>
+      </div>
+      <textarea id="output" placeholder="Resultado aquí..." readonly></textarea>
+    </div>
+  </div>
+
+  <button id="convertir">Convertir</button>
+
+  <script src="main.js"></script>
+</body>
+</html>
